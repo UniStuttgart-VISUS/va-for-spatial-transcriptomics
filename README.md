@@ -10,7 +10,7 @@ The software is a [Bokeh server](https://docs.bokeh.org/en/latest/docs/user_guid
 
 
 ## Proposed Redesign
-We propose a visual analytics system to explore the cell type compositions and relate them to histological image of the tissue.
+We propose a visual analytics system to explore the cell type compositions and relate them to the histological image of the tissue.
 ![image](https://github.com/user-attachments/assets/fe4ad2fb-e042-4732-af0d-20e5e03a61a7)
 
 
