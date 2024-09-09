@@ -12,6 +12,11 @@ The software is a [Bokeh server](https://docs.bokeh.org/en/latest/docs/user_guid
 ## Proposed Redesign
 We propose a visual analytics system to explore the cell type compositions and relate them to the histological image of the tissue.
 ![image](https://github.com/user-attachments/assets/fe4ad2fb-e042-4732-af0d-20e5e03a61a7)
+There are 3 views that support brushing and linking, i.e., selections made in one view are reflected in the other views.
+- Histological image view - shows tissue and locations of spots (toggleable) which can be highlighted when a selection of spots is issued.
+- Stacked bar chart of cell type mixtures - shows the cell type proportions of selected spots. 
+- Dimensionality reduction (similarity) of cell type mixtures - using PCA of the proportions in Aitchison gemotry shows similar mixtures being grouped into blobs.
+  - additional k-means clustering for color coding.
 
 
 
