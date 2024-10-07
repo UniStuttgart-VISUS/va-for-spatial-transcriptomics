@@ -30,6 +30,7 @@ data = pd.merge(spotPostions, spotClusterMembership, on='barcode')
 print("loaded data.")
 
 image_path='RedesignChallengeData/Images/tissue_hires_image.png'
+he_image_original = io.imread(image_path)
 scale_factor=0.11598237
 data['LargestCellType'] = spotClusterMembership.iloc[:,4:].idxmax(axis=1)
 DotNum = 500
@@ -80,8 +81,8 @@ hePlot_visible = True
 scatterPlot_visible = True
 
 def HEImage(plot,muted=False):
-    global data,num_clusters, imageSource,image_path,scale_factor
-    he_image = io.imread(image_path)
+    global data,num_clusters, imageSource,he_image_original,scale_factor
+    he_image = he_image_original.copy()
     alpha = 255
     if muted:
         alpha = 30
@@ -140,8 +141,8 @@ def DotSelectedCallback(attr, old, new):
     kmeansSource.selected.update(indices=selected_indices)
 
 def HESelectionCallback(attr, old, new):
-    global data, kmeansSource, imageSource, image_path, scale_factor
-    he_image = io.imread(image_path)
+    global data, kmeansSource, imageSource, he_image_original, scale_factor
+    he_image = he_image_original.copy()
     SelectedIdx = kmeansSource.selected.indices
     if (hePlot_visible and scatterPlot_visible ) or len(SelectedIdx) == 0:
         alpha_channel = 255 * np.ones((he_image.shape[0], he_image.shape[1], 1), dtype=np.uint8)
